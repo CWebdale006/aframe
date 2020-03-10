@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        Author: Connor J Webdale
+        Date: 3.10.20
+
+        filename: basicTutorial.html
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Woo</title>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+</head>
+<body>
+    <script>
+        AFRAME.registerComponent('customlink', {
+            init: function () {
+                var el = this.el;
+                this.el.addEventListener('mouseenter', function() {
+                    window.location.replace("https://www.google.com/");
+                })
+            }
+        })
+    </script>
+
+    <a-scene>
+        <a-entity
+            text="value: Welcome to my project!; color:#000000"
+            position="1.5 3.75 -3"
+            scale = "5 5 5"
+        ></a-entity>
+        <a-box color="red" position="0 1 -4" scale="2 2 .5">
+            <a-plane color="black" position="0 .09 .8" scale=".7 .7 .7" customlink></a-plane>
+            <a-entity
+                text="value: Project 1; color:#000000"
+                position="1.2 -.35 .8"
+                scale = "3 3 3"
+            ></a-entity>
+        </a-box>
+        <a-box color="red" rotation="0 90 0" position="5 1 0" scale="2 2 .5"></a-box>
+        <a-box color="red" rotation="0 90 0" position="-5 1 0" scale="2 2 .5"></a-box>
+    </a-scene>
+</body>
+</html>
